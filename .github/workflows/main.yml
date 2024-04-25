@@ -1,4 +1,4 @@
-name: CI/CD Pipeline
+name: Update Lambda Function
 
 on:
   push:
@@ -6,23 +6,16 @@ on:
       - main
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v1
-      with:
-        node-version: '14.x'
-
-    - name: Install dependencies
-      run: npm install
-
-    - name: Deploy to AWS Lambda
-      run: aws lambda update-function-code --function-name echoObject
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets. }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.}}
+      - name: Update Lambda Function
+        run: |
+          aws lambda update-function-code --function-name echoObject --zip-file fileb://lambda.py
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AKIA3FLDYRTVQBSG4TOT }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.0uYuiUMZdEvDX+8T7cvkY7/ax+fxBH60i+sT6hEr }}
