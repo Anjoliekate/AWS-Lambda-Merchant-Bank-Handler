@@ -17,5 +17,5 @@ jobs:
         run: |
           aws lambda update-function-code --function-name echoObject --zip-file fileb://lambda.py
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AKIA3FLDYRTVQBSG4TOT }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.0uYuiUMZdEvDX+8T7cvkY7/ax+fxBH60i+sT6hEr }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
